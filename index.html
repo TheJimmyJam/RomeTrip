@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cousins Do the Mediterranean — Carnival Legend, Oct 2026</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a2e4a;
+      --gold: #c9a84c;
+      --gold-light: #e8d28a;
+      --cream: #fdf8f0;
+      --white: #ffffff;
+      --text: #2c2c2c;
+      --muted: #6b7280;
+      --border: #e5ddd0;
+      --sea: #0d5e8c;
+      --italy: #008c45;
+      --greece: #0d5eaf;
+      --montenegro: #c8102e;
+      --croatia: #b22234;
+      --rust: #a04a2c;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    /* ── HERO ───────────────────────────── */
+    .hero {
+      position: relative;
+      height: 460px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+    .hero-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center 55%;
+    }
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,20,40,0.92) 0%, rgba(10,20,40,0.35) 60%, transparent 100%);
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 60px 44px;
+      width: 100%;
+    }
+    .hero-eyebrow {
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 3.5px;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 10px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 60px;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.05;
+      margin-bottom: 12px;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .hero-sub {
+      font-family: 'Lato', sans-serif;
+      font-weight: 300;
+      font-size: 16px;
+      color: rgba(255,255,255,0.84);
+      letter-spacing: 0.5px;
+    }
+
+    /* ── OVERVIEW STRIP ─────────────────── */
+    .overview-strip {
+      background: var(--navy);
+      color: #fff;
+      padding: 28px 60px;
+      display: flex;
+      gap: 36px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .ov-item { min-width: 150px; }
+    .ov-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 4px;
+    }
+    .ov-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .ov-sub {
+      font-size: 12px;
+      color: rgba(255,255,255,0.6);
+      margin-top: 2px;
+    }
+
+    /* ── WEATHER OVERVIEW ───────────────── */
+    .weather-section { padding: 36px 60px; background: var(--white); }
+    .weather-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+    .weather-section .sub {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+    .weather-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .weather-card {
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 18px;
+      background: #fefcf7;
+    }
+    .weather-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      color: var(--navy);
+      margin-bottom: 2px;
+    }
+    .weather-card .dates { font-size: 11px; color: var(--muted); margin-bottom: 10px; }
+    .weather-card .temp {
+      font-size: 24px; font-weight: 900; color: var(--navy);
+    }
+    .weather-card .temp span { font-size: 13px; font-weight: 400; color: var(--muted); }
+    .weather-card .details {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 6px;
+      line-height: 1.6;
+    }
+    .weather-card .icon { font-size: 26px; margin-bottom: 6px; }
+
+    /* ── DAYS SECTION ───────────────────── */
+    .days-section { padding: 36px 40px 48px; }
+    .days-section h2.section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: var(--navy);
+      margin-bottom: 18px;
+      padding: 0 20px;
+    }
+
+    /* ── DAY CARD ───────────────────────── */
+    .day-card {
+      background: var(--white);
+      border-radius: 10px;
+      box-shadow: 0 2px 14px rgba(20,30,55,0.08);
+      margin-bottom: 22px;
+      overflow: hidden;
+      max-width: 980px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .day-header {
+      display: flex;
+      align-items: center;
+      padding: 18px 24px;
+      background: var(--navy);
+      gap: 18px;
+    }
+    .day-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      min-width: 48px;
+    }
+    .day-info { flex: 1; }
+    .day-date {
+      font-size: 12px;
+      color: rgba(255,255,255,0.62);
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+    .day-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      color: #fff;
+      font-weight: 600;
+      margin: 1px 0 4px;
+    }
+    .day-location {
+      display: inline-block;
+      background: rgba(201,168,76,0.18);
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .day-weather-badge {
+      text-align: right;
+      color: rgba(255,255,255,0.85);
+      font-size: 12px;
+      white-space: nowrap;
+      min-width: 130px;
+    }
+    .day-weather-badge .icon { font-size: 22px; display: block; line-height: 1; margin-bottom: 2px; }
+    .day-weather-badge.loading { font-style: italic; opacity: 0.55; }
+
+    /* country variants */
+    .day-card.greece .day-header { background: linear-gradient(135deg, #0d5eaf 0%, #1a2e4a 100%); }
+    .day-card.montenegro .day-header { background: linear-gradient(135deg, #6c1626 0%, #1a2e4a 100%); }
+    .day-card.croatia .day-header { background: linear-gradient(135deg, #8a2030 0%, #1a2e4a 100%); }
+    .day-card.italy .day-header { background: linear-gradient(135deg, #2d6a4f 0%, #1a2e4a 100%); }
+    .day-card.travel .day-header { background: #2d4a2d; }
+    .day-card.travel .day-number { color: #90c090; }
+    .day-card.sea .day-header { background: linear-gradient(135deg, #0d5e8c 0%, #1a2e4a 100%); }
+    .day-card.sea .day-number { color: #87bce0; }
+
+    .day-body { padding: 18px 24px 22px; }
+
+    /* ── DAILY WEATHER STRIP ────────────── */
+    .day-weather-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px 22px;
+      align-items: flex-start;
+      background: linear-gradient(135deg, #eef3fb 0%, #f0f6ff 100%);
+      border: 1px solid #d0ddf0;
+      border-radius: 8px;
+      padding: 12px 16px 10px;
+      margin-bottom: 18px;
+      font-size: 12px;
+    }
+    .day-weather-strip.sea-day,
+    .day-weather-strip.travel-day {
+      background: #f9f9f7;
+      border-color: #e0ddd8;
+    }
+    .dwx-item {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      white-space: nowrap;
+    }
+    .dwx-icon { font-size: 16px; line-height: 1; }
+    .dwx-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #7a8fab;
+    }
+    .dwx-val {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+    .dwx-tip {
+      width: 100%;
+      font-size: 12px;
+      color: #4a5568;
+      font-style: italic;
+      border-top: 1px solid #d0ddf0;
+      padding-top: 8px;
+      margin-top: 2px;
+      line-height: 1.5;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .dwx-source {
+      display: inline-block;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      background: #fff;
+      border: 1px solid #b0c8e8;
+      color: #0057a8;
+      border-radius: 20px;
+      padding: 2px 9px;
+      margin-left: auto;
+      font-style: normal;
+    }
+    .dwx-source.live { background: #f0fdf4; border-color: #86efac; color: #16a34a; }
+    .dwx-loading {
+      width: 100%;
+      font-size: 12px;
+      color: #4a5568;
+      font-style: italic;
+      opacity: 0.7;
+    }
+
+    /* ── ACTIVITIES / DAY PLAN ──────────── */
+    .activities { margin-bottom: 16px; }
+    .activities h4 {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--sea);
+      margin-bottom: 10px;
+    }
+    .activity-list { list-style: none; }
+    .activity-list li {
+      padding: 7px 0 7px 22px;
+      position: relative;
+      font-size: 14px;
+      color: var(--text);
+      border-bottom: 1px solid #f0ebe3;
+      line-height: 1.55;
+    }
+    .activity-list li:last-child { border-bottom: none; }
+    .activity-list li::before {
+      content: '›';
+      position: absolute;
+      left: 4px;
+      top: 5px;
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .activity-list li strong { color: var(--navy); font-weight: 700; }
+    .activity-list li .skip { color: var(--rust); font-weight: 700; }
+
+    /* ── RESTAURANTS ─────────────────────── */
+    .restaurants {
+      background: #fdf6ee;
+      border: 1px solid #ede3d2;
+      border-radius: 8px;
+      padding: 14px 18px;
+      margin-bottom: 14px;
+    }
+    .restaurants h4 {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--rust);
+      margin-bottom: 10px;
+    }
+    .rest-row {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 8px;
+      align-items: flex-start;
+    }
+    .rest-row:last-child { margin-bottom: 0; }
+    .rest-tag {
+      background: var(--rust);
+      color: #fff;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      white-space: nowrap;
+      margin-top: 2px;
+      width: 80px;
+      flex-shrink: 0;
+      text-align: center;
+    }
+    .rest-tag.lunch { background: var(--sea); }
+    .rest-tag.coffee { background: #6b4226; }
+    .rest-tag.dinner { background: var(--navy); }
+    .rest-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 15px;
+      color: var(--navy);
+      font-weight: 600;
+    }
+    .rest-desc { font-size: 12px; color: var(--muted); margin-top: 1px; line-height: 1.55; }
+
+    /* ── LOCAL NOTES ─────────────────────── */
+    .local-notes {
+      background: #f4f7fc;
+      border: 1px solid #d6dfee;
+      border-radius: 8px;
+      padding: 14px 18px;
+    }
+    .local-notes h4 {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .ln-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px 22px;
+    }
+    .ln-item { font-size: 12.5px; line-height: 1.5; }
+    .ln-item strong {
+      display: block;
+      color: var(--navy);
+      font-size: 10px;
+      letter-spacing: 1.4px;
+      text-transform: uppercase;
+      margin-bottom: 1px;
+      font-weight: 700;
+    }
+    .ln-item span { color: var(--text); }
+    .ln-item em { color: var(--muted); font-style: italic; font-size: 12px; }
+
+    /* ── SECTION HEADERS ─────────────────── */
+    .leg-header {
+      max-width: 980px;
+      margin: 26px auto 12px;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .leg-header::before, .leg-header::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+    .leg-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-style: italic;
+      color: var(--muted);
+      font-weight: 400;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    /* ── TIPS BOX ────────────────────────── */
+    .tips-section { padding: 40px 60px; background: var(--navy); }
+    .tips-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+    .tips-section .sub {
+      color: rgba(255,255,255,0.6);
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+    }
+    .tip-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 8px;
+      padding: 16px 18px;
+    }
+    .tip-card h3 {
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .tip-card p,
+    .tip-card ul { color: rgba(255,255,255,0.78); font-size: 13px; line-height: 1.6; }
+    .tip-card ul { list-style: none; padding: 0; }
+    .tip-card ul li {
+      padding: 4px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 12.5px;
+    }
+    .tip-card ul li:last-child { border-bottom: none; }
+    .tip-card ul li strong { color: var(--gold-light); font-weight: 700; }
+
+    /* ── COUSIN TRADITIONS ───────────────── */
+    .cousins-section { padding: 40px 60px; background: #2a1f15; color: #f5e9d3; }
+    .cousins-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+    .cousins-section .sub {
+      color: rgba(245,233,211,0.6);
+      font-size: 14px;
+      margin-bottom: 22px;
+      font-style: italic;
+    }
+    .tradition-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+    }
+    .tradition {
+      background: rgba(255,255,255,0.04);
+      border-left: 3px solid var(--gold);
+      padding: 14px 18px;
+    }
+    .tradition h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      color: var(--gold-light);
+      margin-bottom: 4px;
+    }
+    .tradition p {
+      font-size: 13px;
+      color: rgba(245,233,211,0.78);
+      line-height: 1.55;
+    }
+
+    /* ── FOOTER ───────────────────────────── */
+    footer {
+      background: #111827;
+      color: rgba(255,255,255,0.4);
+      text-align: center;
+      padding: 26px;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    /* ── MOBILE ───────────────────────────── */
+    @media (max-width: 760px) {
+      .hero { height: 380px; }
+      .hero-content { padding: 0 22px 28px; }
+      .hero-title { font-size: 38px; }
+      .overview-strip { padding: 22px; gap: 18px; }
+      .weather-section { padding: 24px 16px; }
+      .weather-grid { grid-template-columns: 1fr; gap: 10px; }
+      .days-section { padding: 18px 12px 28px; }
+      .days-section h2.section-title { font-size: 22px; padding: 0 8px; }
+      .day-card { border-radius: 8px; }
+      .day-header { padding: 14px 16px; gap: 12px; flex-wrap: wrap; }
+      .day-number { font-size: 28px; min-width: 38px; }
+      .day-title { font-size: 16px; }
+      .day-weather-badge { min-width: 100%; text-align: left; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.1); }
+      .day-weather-badge .icon { display: inline; margin-right: 4px; }
+      .day-body { padding: 14px 16px 18px; }
+      .day-weather-strip { gap: 10px 14px; padding: 10px 12px; }
+      .ln-grid { grid-template-columns: 1fr; gap: 8px; }
+      .tips-section, .cousins-section { padding: 26px 18px; }
+      .tips-grid, .tradition-grid { grid-template-columns: 1fr; gap: 12px; }
+      .leg-header { margin: 18px auto 10px; padding: 0 12px; }
+    }
+    @media (min-width: 761px) and (max-width: 1080px) {
+      .tips-grid, .tradition-grid { grid-template-columns: 1fr 1fr; }
+      .weather-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════ HERO ════════ -->
+<div class="hero">
+  <img class="hero-img"
+    src="https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?auto=format&fit=crop&w=1600&q=80"
+    alt="Mediterranean coast"
+    onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg,#1a2e4a 0%,#0d1f35 100%)'">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">✦ Personalized Cruise Itinerary ✦</div>
+    <div class="hero-title">Cousins Do <em>the Mediterranean</em></div>
+    <div class="hero-sub">Carnival Legend &nbsp;·&nbsp; Rome Roundtrip &nbsp;·&nbsp; Oct 23 – Nov 1, 2026 &nbsp;·&nbsp; 9 Nights</div>
+  </div>
+</div>
+
+<!-- ════════ OVERVIEW STRIP ════════ -->
+<div class="overview-strip">
+  <div class="ov-item">
+    <div class="ov-label">Embark</div>
+    <div class="ov-value">Civitavecchia (Rome)</div>
+    <div class="ov-sub">Fri Oct 23 · Carnival Legend</div>
+  </div>
+  <div class="ov-item">
+    <div class="ov-label">Disembark</div>
+    <div class="ov-value">Civitavecchia (Rome)</div>
+    <div class="ov-sub">Sun Nov 1 · 9:00 AM</div>
+  </div>
+  <div class="ov-item">
+    <div class="ov-label">Ports of Call</div>
+    <div class="ov-value">5 Ports · 4 Countries</div>
+    <div class="ov-sub">Greece · Montenegro · Croatia · Italy</div>
+  </div>
+  <div class="ov-item">
+    <div class="ov-label">Sea Days</div>
+    <div class="ov-value">3 Days at Sea</div>
+    <div class="ov-sub">Oct 24, 25 &amp; 30</div>
+  </div>
+  <div class="ov-item">
+    <div class="ov-label">Theme</div>
+    <div class="ov-value">Cousins Crew</div>
+    <div class="ov-sub">One long table every night</div>
+  </div>
+</div>
+
+<!-- ════════ WEATHER OVERVIEW ════════ -->
+<div class="weather-section">
+  <h2>Weather Overview</h2>
+  <p class="sub">Late October Mediterranean — cool nights, mild days, occasional rain. Pack layers. Live forecasts on each day card below update every visit.</p>
+  <div class="weather-grid">
+    <div class="weather-card">
+      <div class="icon">⛅</div>
+      <h3>Italy &amp; Sea Days</h3>
+      <div class="dates">Oct 23–25 · Oct 30–31 · Nov 1</div>
+      <div class="temp">62–72°F <span>/ 17–22°C</span></div>
+      <div class="details">
+        Sunny spells, light breeze on deck.<br>
+        Naples can be warmer (Halloween: ~70°F).<br>
+        Light jacket for evening sail-aways.
+      </div>
+    </div>
+    <div class="weather-card">
+      <div class="icon">🌤</div>
+      <h3>Greece &amp; Montenegro</h3>
+      <div class="dates">Oct 26–27</div>
+      <div class="temp">64–74°F <span>/ 18–23°C</span></div>
+      <div class="details">
+        Warm, dry, golden light.<br>
+        Best weather of the cruise.<br>
+        Sunglasses + linen shirt territory.
+      </div>
+    </div>
+    <div class="weather-card">
+      <div class="icon">🌦</div>
+      <h3>Croatia (Adriatic)</h3>
+      <div class="dates">Oct 28–29</div>
+      <div class="temp">60–68°F <span>/ 16–20°C</span></div>
+      <div class="details">
+        Cooler, occasional showers possible.<br>
+        Pack a packable rain shell.<br>
+        Stone old towns hold the chill — layer up.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ DAYS ════════ -->
+<div class="days-section">
+  <h2 class="section-title">Day by Day</h2>
+
+  <!-- ── LEG: ROME / SEA ── -->
+  <div class="leg-header"><h3>Leg 1 · Embarkation &amp; sea days</h3></div>
+
+  <!-- DAY 01 — EMBARK -->
+  <div class="day-card travel">
+    <div class="day-header">
+      <div class="day-number">01</div>
+      <div class="day-info">
+        <div class="day-date">Friday, October 23, 2026</div>
+        <div class="day-title">Embark Carnival Legend</div>
+        <span class="day-location">🛳 Civitavecchia · Italy</span>
+      </div>
+      <div class="day-weather-badge loading" data-badge data-lat="42.0942" data-lon="11.7958" data-date="2026-10-23"><span class="icon">⛅</span>Loading…</div>
+    </div>
+    <div class="day-body">
+
+      <div class="day-weather-strip travel-day"
+           data-weather data-lat="42.0942" data-lon="11.7958" data-date="2026-10-23"
+           data-tip="Cool evening sail-away — light jacket on deck."
+           data-port="Civitavecchia">
+        <div class="dwx-loading">Pulling live forecast for Civitavecchia…</div>
+      </div>
+
+      <div class="activities">
+        <h4>Day Plan</h4>
+        <ul class="activity-list">
+          <li><strong>Pre-booked transfer</strong> from Rome / FCO airport to Civitavecchia (~90 min). Skip the train; private car runs €130–180.</li>
+          <li><strong>Boarding ~11:30 AM</strong>; cabins open ~1:30 PM. Lunch at the Lido buffet, then unpack at your own pace.</li>
+          <li><strong>Book specialty dining + spa</strong> immediately on the Carnival Hub app — they sell out on a 9-nighter.</li>
+          <li>Find your <strong>muster station</strong> (it's mandatory and quick — do it before the bar opens).</li>
+          <li><strong>Sail-away on deck</strong> ~5:00 PM. Cousins photo with the Italian coast disappearing behind you. Non-negotiable.</li>
+          <li><strong>Cousin dinner #1</strong> in the main dining room. Everyone there. No peeling off early.</li>
+        </ul>
+      </div>
+
+      <div class="local-notes">
+        <h4>Embarkation Notes</h4>
+        <div class="ln-grid">
+          <div class="ln-item"><strong>Carry-on essentials</strong><span>Swimsuit, meds, chargers, change of clothes — checked bags can take hours.</span></div>
+          <div class="ln-item"><strong>Wear on board</strong><span>Comfortable layers; ship is air-conditioned. Pack a sweater.</span></div>
+          <div class="ln-item"><strong>Pre-cruise night</strong><span>Strongly recommended: arrive Rome 1–2 days early to beat jet lag.</span></div>
+          <div class="ln-item"><strong>Carnival Hub app</strong><span>Download before you sail. Free chat with cousins on board, dinner reservations, daily program.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 02 — SEA -->
+  <div class="day-card sea">
+    <div class="day-header">
+      <div class="day-number">02</div>
+      <div class="day-info">
+        <div class="day-date">Saturday, October 24, 2026</div>
+        <div class="day-title">At Sea · Tyrrhenian Crossing</div>
+        <span class="day-location">⚓ Sea Day</span>
+      </div>
+      <div class="day-weather-badge"><span class="icon">🌊</span>At sea</div>
+    </div>
+    <div class="day-body">
+      <div class="day-weather-strip sea-day">
+        <div class="dwx-item"><span class="dwx-icon">🌊</span><div><div class="dwx-label">Conditions</div><div class="dwx-val">Open Mediterranean</div></div></div>
+        <div class="dwx-item"><span class="dwx-icon">🌡</span><div><div class="dwx-label">Deck temp</div><div class="dwx-val">~68°F / 20°C</div></div></div>
+        <div class="dwx-item"><span class="dwx-icon">💨</span><div><div class="dwx-label">Wind</div><div class="dwx-val">Variable, 10–15 mph</div></div></div>
+        <div class="dwx-item"><span class="dwx-icon">🌅</span><div><div class="dwx-label">Sunset</div><div class="dwx-val">~6:30 PM (CET)</div></div></div>
+        <div class="dwx-tip">Watch the daily program for an overnight clock change as we head south.<span class="dwx-source">No port — ship-board</span></div>
+      </div>
+
+      <div class="activities">
+        <h4>Day Plan</h4>
+        <ul class="activity-list">
+          <li><strong>Slow morning</strong>: breakfast on the Lido, paperback on the <strong>Serenity (adults-only) deck</strong> at the back of the ship.</li>
+          <li><strong>Trivia at noon</strong>: form a cousin team. Pick a name with a pun in it. The schedule's in the Hub app.</li>
+          <li><strong>Afternoon options</strong>: pool, casino, art talk, cooking demo. Pick two.</li>
+          <li><strong>Cruise Elegant</strong> dinner tonight — bring one nice shirt. Photos before dinner with the cousins.</li>
+          <li>Comedy club fills up fast — arrive 20 min early or skip the late show.</li>
+        </ul>
+      </div>
+
+      <div class="restaurants">
+        <h4>On-Board Picks</h4>
+        <div class="rest-row">
+          <div class="rest-tag dinner">Dinner</div>
+          <div>
+            <div class="rest-name">Main Dining Room (Truffles)</div>
+            <div class="rest-desc">Cruise Elegant night — multi-course traditional dinner with the cousins. Order the lobster tail when it's on (often the second formal night).</div>
+          </div>
+        </div>
+        <div class="rest-row">
+          <div class="rest-tag lunch">Lunch</div>
+          <div>
+            <div class="rest-name">Guy's Burger Joint (Lido)</div>
+            <div class="rest-desc">Free, on the pool deck. Easy lunch, no reservation. The Plain Jane is the move.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 03 — SEA -->
+  <div class="day-card sea">
+    <div class="day-header">
+      <div class="day-number">03</div>
+      <div class="day-info">
+        <div class="day-date">Sunday, October 25, 2026</div>
+        <div class="day-title">At Sea · Heading Toward Greece</div>
+        <span class="day-location">⚓ Sea Day</span>
+      </div>
+      <div class="day-weather-badge"><span class="icon">🌊</span>At sea</div>
+    </div>
+    <div class="day-body">
+      <div class="day-weather-strip sea-day">
+        <div class="dwx-item"><span class="dwx-icon">🌊</span><div><div class="dwx-label">Sea state</div><div class="dwx-val">Calm-to-moderate</div></div></div>
+        <div class="dwx-item"><span class="dwx-icon">🌡</span><div><div class="dwx-label">Deck temp</div><div class="dwx-val">~70°F / 21°C</div></div></div>
+        <div class="dwx-item"><span class="dwx-icon">🌅</span><div><div class="dwx-label">Sunset</div><div class="dwx-val">~6:25 PM</div></div></div>
+        <div class="dwx-item"><span class="dwx-icon">⏰</span><div><div class="dwx-label">DST ends</div><div class="dwx-val">Tonight: clocks back 1hr</div></div></div>
+        <div class="dwx-tip">European DST ends overnight Oct 25–26. Carnival will adjust ship time and remind you in the daily program.<span class="dwx-source">No port — ship-board</span></div>
+      </div>
+
+      <div class="activities">
+        <h4>Day Plan</h4>
+        <ul class="activity-list">
+          <li><strong>Steakhouse dinner tonight</strong> — book table for the cousins. Carnival's specialty steakhouse is worth one dinner; tonight is the right one.</li>
+          <li>Pack tomorrow's <strong>port day-bag</strong>: light jacket, walking shoes, sunscreen, water bottle, €100 cash, a small backpack.</li>
+          <li>Quiet afternoon: <strong>library or chess room</strong> on lower decks. Hidden gem on sea days.</li>
+          <li>Round the boot of Italy tonight — the ship turns toward the Ionian Sea. You wake up off Greece.</li>
+        </ul>
+      </div>
+
+      <div class="local-notes">
+        <h4>Heads-Up for Tomorrow</h4>
+        <div class="ln-grid">
+          <div class="ln-item"><strong>Time zone</strong><span>Greece is 1 hour ahead of Italy (EET). The ship may stay on CET — check daily program.</span></div>
+          <div class="ln-item"><strong>Currency</strong><span>Euro (€) — same as Italy. No exchange needed.</span></div>
+          <div class="ln-item"><strong>Port distance</strong><span>3 km from cruise terminal to Old Town. Take the shuttle (~€5) or taxi.</span></div>
+          <div class="ln-item"><strong>Dress code</strong><span>Cobblestone-friendly shoes. Layer for breezy seafront.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── LEG: GREECE & MONTENEGRO ── -->
+  <div class="leg-header"><h3>Leg 2 · Greece &amp; Montenegro</h3></div>
+
+  <!-- DAY 04 — CORFU -->
+  <div class="day-card greece">
+    <div class="day-header">
+      <div class="day-number">04</div>
+      <div class="day-info">
+        <div class="day-date">Monday, October 26, 2026</div>
+        <div class="day-title">Corfu · Venetian Old Town</div>
+        <span class="day-location">📍 Greece · 9 AM – 5 PM</span>
+      </div>
+      <div class="day-weather-badge loading" data-badge data-lat="39.6243" data-lon="19.9217" data-date="2026-10-26"><span class="icon">⛅</span>Loading…</div>
+    </div>
+    <div class="day-body">
+
+      <div class="day-weather-strip"
+           data-weather data-lat="39.6243" data-lon="19.9217" data-date="2026-10-26"
+           data-tip="Best weather of the cruise. Linen shirt, sunglasses, late-morning espresso on the Liston."
+           data-port="Corfu">
+        <div class="dwx-loading">Pulling live forecast for Corfu…</div>
+      </div>
+
+      <div class="activities">
+        <h4>Day Plan · Easy Pace</h4>
+        <ul class="activity-list">
+          <li><strong>9:00 AM dock</strong>; cruise shuttle (~€5) or taxi (~€10) into the Old Town — 3 km, not walkable.</li>
+          <li>Coffee on the <strong>Liston promenade</strong> — the arcaded café row built under Napoleonic occupation. Sit, watch, slow down.</li>
+          <li><strong>Saint Spyridon Church</strong> — Corfu's patron saint, striking red-domed bell tower. Free, two minutes inside.</li>
+          <li><strong>Old Fortress</strong> grounds and lower terraces. Walk the entrance; <span class="skip">skip the climb to the top</span> — view from the lower level is just as good.</li>
+          <li>Wander the <strong>Campiello</strong> — the medieval residential lanes barely wide enough for a Vespa. 30 minutes of slow.</li>
+          <li>Long lunch back on the Liston. Be at the shuttle by 4:00 PM.</li>
+        </ul>
+      </div>
+
+      <div class="restaurants">
+        <h4>Where to Eat</h4>
+        <div class="rest-row">
+          <div class="rest-tag lunch">Lunch</div>
+          <div>
+            <div class="rest-name">Pomo d'Oro</div>
+            <div class="rest-desc">Quiet square just off the Liston. Order <em>pastitsada</em> — the Corfiot Venetian-style beef stew over bucatini. The local Sunday meal, on a Monday.</div>
+          </div>
+        </div>
+        <div class="rest-row">
+          <div class="rest-tag lunch">Alt</div>
+          <div>
+            <div class="rest-name">Salto Wine Bar</div>
+            <div class="rest-desc">Rooftop overlooking the Old Fortress. Cold local rosé, Greek cheese board. The kind of long lunch the cousins remember.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="local-notes">
+        <h4>Local Notes · Greece 🇬🇷</h4>
+        <div class="ln-grid">
+          <div class="ln-item"><strong>Currency</strong><span>Euro (€). Card accepted; small cash for cafés.</span></div>
+          <div class="ln-item"><strong>Hello / Thank you</strong><em>Yassas / Efharistó</em></div>
+          <div class="ln-item"><strong>Tipping</strong><span>Round up at cafés. 5–10% at sit-down dinner if service was good.</span></div>
+          <div class="ln-item"><strong>Custom to know</strong><span>Greeks don't rush coffee. Ordering "to go" is a tourist tell. Sit, sip, watch.</span></div>
+          <div class="ln-item"><strong>Time zone</strong><span>EET (UTC+2) — 1hr ahead of ship time if Carnival stays on CET.</span></div>
+          <div class="ln-item"><strong>All aboard</strong><span><strong>4:30 PM.</strong> Ship leaves at 5:00. Don't push it.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 05 — KOTOR -->
+  <div class="day-card montenegro">
+    <div class="day-header">
+      <div class="day-number">05</div>
+      <div class="day-info">
+        <div class="day-date">Tuesday, October 27, 2026</div>
+        <div class="day-title">Kotor · The Bay &amp; Walled City</div>
+        <span class="day-location">📍 Montenegro · 9 AM – 5 PM</span>
+      </div>
+      <div class="day-weather-badge loading" data-badge data-lat="42.4247" data-lon="18.7712" data-date="2026-10-27"><span class="icon">⛅</span>Loading…</div>
+    </div>
+    <div class="day-body">
+
+      <div class="day-weather-strip"
+           data-weather data-lat="42.4247" data-lon="18.7712" data-date="2026-10-27"
+           data-tip="Be on deck for the 1-hour sail INTO the bay — best entrance of the cruise."
+           data-port="Kotor">
+        <div class="dwx-loading">Pulling live forecast for Kotor…</div>
+      </div>
+
+      <div class="activities">
+        <h4>Day Plan · Easy Pace</h4>
+        <ul class="activity-list">
+          <li><strong>Be on deck before 9 AM</strong> — the ship spends an hour sailing through the Bay of Kotor. Mountains on both sides. Coffee in hand.</li>
+          <li>Walk off the ship — <strong>5-minute flat walk</strong> to the Sea Gate of the walled city. No transport needed.</li>
+          <li><strong>Square of Arms</strong> — the main piazza inside the gate, with the 1602 clock tower.</li>
+          <li><strong>Cathedral of Saint Tryphon</strong> (1166) — €3.50 entry. Most beautiful interior in town.</li>
+          <li><strong>Saint Luke's Square</strong> — Catholic and Orthodox churches side by side, quiet.</li>
+          <li><strong>Maritime Museum</strong> in an 18th-c. palace — €5, 45 min, worth it.</li>
+          <li><span class="skip">Skip the wall climb</span> (1,350 steps, no shade). View from the lower terraces is plenty.</li>
+        </ul>
+      </div>
+
+      <div class="restaurants">
+        <h4>Where to Eat</h4>
+        <div class="rest-row">
+          <div class="rest-tag lunch">Lunch</div>
+          <div>
+            <div class="rest-name">Galion</div>
+            <div class="rest-desc">Just outside the south wall, on the marina with a view of the bay and the ship. Whole grilled fish from the daily catch, local seafood risotto. Long, slow.</div>
+          </div>
+        </div>
+        <div class="rest-row">
+          <div class="rest-tag coffee">Coffee</div>
+          <div>
+            <div class="rest-name">Square of Arms cafés</div>
+            <div class="rest-desc">Best espresso in town. After noon, switch to a Nikšićko (the local beer) and watch the cats — Kotor has a famous resident cat population.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="local-notes">
+        <h4>Local Notes · Montenegro 🇲🇪</h4>
+        <div class="ln-grid">
+          <div class="ln-item"><strong>Currency</strong><span>Euro (€) — even though Montenegro isn't in the EU.</span></div>
+          <div class="ln-item"><strong>Hello / Thank you</strong><em>Zdravo / Hvala</em></div>
+          <div class="ln-item"><strong>Tipping</strong><span>10% at restaurants if service was good. Round up at cafés.</span></div>
+          <div class="ln-item"><strong>Custom to know</strong><span>Montenegrins are direct, not unfriendly — don't read brusque service as rude. The cats outnumber the dogs.</span></div>
+          <div class="ln-item"><strong>Port-to-town</strong><span>Walk. Ship docks 5 min from the Sea Gate. No taxi.</span></div>
+          <div class="ln-item"><strong>All aboard</strong><span><strong>4:30 PM.</strong> Be on deck for the bay sail-out — same view, reversed.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── LEG: CROATIA ── -->
+  <div class="leg-header"><h3>Leg 3 · Croatia · The Dalmatian Coast</h3></div>
+
+  <!-- DAY 06 — DUBROVNIK -->
+  <div class="day-card croatia">
+    <div class="day-header">
+      <div class="day-number">06</div>
+      <div class="day-info">
+        <div class="day-date">Wednesday, October 28, 2026</div>
+        <div class="day-title">Dubrovnik · Pearl of the Adriatic</div>
+        <span class="day-location">📍 Croatia · 9 AM – 5 PM</span>
+      </div>
+      <div class="day-weather-badge loading" data-badge data-lat="42.6507" data-lon="18.0944" data-date="2026-10-28"><span class="icon">⛅</span>Loading…</div>
+    </div>
+    <div class="day-body">
+
+      <div class="day-weather-strip"
+           data-weather data-lat="42.6507" data-lon="18.0944" data-date="2026-10-28"
+           data-tip="Cooler than Greece — packable rain shell + sweater for the cable car summit."
+           data-port="Dubrovnik">
+        <div class="dwx-loading">Pulling live forecast for Dubrovnik…</div>
+      </div>
+
+      <div class="activities">
+        <h4>Day Plan · Easy Pace</h4>
+        <ul class="activity-list">
+          <li><strong>9:00 AM dock at Gruž</strong>, 3 km from the Old Town. Taxi €10 or city bus #1A/1B for €2 to the Pile Gate.</li>
+          <li><strong>Cable car up Mt. Srđ first</strong> — €27 round trip, 3 minutes up, no climbing. Best photo of the trip.</li>
+          <li><strong>Stradun</strong> — the polished marble main street. Flat, atmospheric, runs the length of the Old Town.</li>
+          <li><strong>Rector's Palace</strong> — gothic-renaissance courtyard, cool and quiet. €10, one floor.</li>
+          <li><strong>Franciscan Monastery</strong> — has one of Europe's oldest pharmacies (opened 1317). Free to look.</li>
+          <li><span class="skip">Skip the city walls walk</span> — 2 km of stairs, no shade, €35. The cable car gives the same view.</li>
+        </ul>
+      </div>
+
+      <div class="restaurants">
+        <h4>Where to Eat</h4>
+        <div class="rest-row">
+          <div class="rest-tag lunch">Lunch</div>
+          <div>
+            <div class="rest-name">Nautika</div>
+            <div class="rest-desc">Just outside the Pile Gate, terrace over the sea. White tablecloths, fresh Adriatic fish. <strong>Reserve before you sail.</strong></div>
+          </div>
+        </div>
+        <div class="rest-row">
+          <div class="rest-tag lunch">Alt</div>
+          <div>
+            <div class="rest-name">Proto</div>
+            <div class="rest-desc">Side street off Stradun, since 1886. Order the black risotto (cuttlefish ink) — a Dalmatian classic. Honest food, not fussy.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="local-notes">
+        <h4>Local Notes · Croatia 🇭🇷</h4>
+        <div class="ln-grid">
+          <div class="ln-item"><strong>Currency</strong><span>Euro (€) since January 2023. Card everywhere.</span></div>
+          <div class="ln-item"><strong>Hello / Thank you</strong><em>Bok / Hvala</em></div>
+          <div class="ln-item"><strong>Tipping</strong><span>10% at sit-down meals. Round up at cafés.</span></div>
+          <div class="ln-item"><strong>Custom to know</strong><span>Dubrovnik takes its old town seriously — no swimsuits or shouting on Stradun. Smart-casual flies.</span></div>
+          <div class="ln-item"><strong>Cable car</strong><span>Right by the Buža Gate. Book online to skip the queue.</span></div>
+          <div class="ln-item"><strong>All aboard</strong><span><strong>4:30 PM.</strong> Build in 30 min for the drive back to Gruž.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 07 — SPLIT -->
+  <div class="day-card croatia">
+    <div class="day-header">
+      <div class="day-number">07</div>
+      <div class="day-info">
+        <div class="day-date">Thursday, October 29, 2026</div>
+        <div class="day-title">Split · Diocletian's Palace</div>
+        <span class="day-location">📍 Croatia · 9 AM – 5 PM</span>
+      </div>
+      <div class="day-weather-badge loading" data-badge data-lat="43.5081" data-lon="16.4402" data-date="2026-10-29"><span class="icon">⛅</span>Loading…</div>
+    </div>
+    <div class="day-body">
+
+      <div class="day-weather-strip"
+           data-weather data-lat="43.5081" data-lon="16.4402" data-date="2026-10-29"
+           data-tip="Best port-day-to-effort ratio of the cruise — walk off the ship into a Roman palace."
+           data-port="Split">
+        <div class="dwx-loading">Pulling live forecast for Split…</div>
+      </div>
+
+      <div class="activities">
+        <h4>Day Plan · Easy Pace</h4>
+        <ul class="activity-list">
+          <li><strong>500 m flat walk</strong> from the cruise terminal along the Riva to Diocletian's Palace. No transport. No hills.</li>
+          <li><strong>Cellars (Substructures)</strong> — original Roman undercroft of Diocletian's living quarters. Cool, shaded, atmospheric. €7.</li>
+          <li><strong>Peristyle</strong> — the colonnaded ceremonial courtyard. There's a black sphinx Diocletian brought from Egypt c. 1700 BC.</li>
+          <li><strong>Cathedral of Saint Domnius</strong> — Diocletian's own mausoleum, repurposed. €5 cathedral floor only. <span class="skip">Skip the bell tower</span> (183 narrow steps).</li>
+          <li><strong>Vestibule</strong> — round domed antechamber. Listen for klapa (Dalmatian a-cappella) groups singing inside.</li>
+          <li>Coffee on the <strong>Peristyle steps</strong> (Lvxor café). You're paying to sit on a Roman emperor's courtyard. Worth it once.</li>
+        </ul>
+      </div>
+
+      <div class="restaurants">
+        <h4>Where to Eat</h4>
+        <div class="rest-row">
+          <div class="rest-tag lunch">Lunch</div>
+          <div>
+            <div class="rest-name">Konoba Matejuška</div>
+            <div class="rest-desc">Tiny old fishermen's tavern just outside the palace, by the small harbor. Grilled octopus salad, bottle of Pošip white. Honest, salty, perfect.</div>
+          </div>
+        </div>
+        <div class="rest-row">
+          <div class="rest-tag coffee">Coffee</div>
+          <div>
+            <div class="rest-name">Lvxor (in the Peristyle)</div>
+            <div class="rest-desc">Cushions on the Roman steps. Order an espresso. Stay for an hour.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="local-notes">
+        <h4>Local Notes · Croatia 🇭🇷</h4>
+        <div class="ln-grid">
+          <div class="ln-item"><strong>Currency</strong><span>Euro (€).</span></div>
+          <div class="ln-item"><strong>Hello / Thank you</strong><em>Bok / Hvala</em></div>
+          <div class="ln-item"><strong>Palace gates</strong><span>Brass (south, on the water) · Iron (W) · Silver (E) · Golden (N). Most enter through Brass off the Riva.</span></div>
+          <div class="ln-item"><strong>Custom to know</strong><span>3,000 people still live <em>inside</em> the palace walls. It's not a museum — it's a neighborhood.</span></div>
+          <div class="ln-item"><strong>Port-to-town</strong><span>Walk, 5–10 min along the Riva. Ship is right there.</span></div>
+          <div class="ln-item"><strong>All aboard</strong><span><strong>4:30 PM.</strong> Plenty of buffer — palace is at the dock.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── LEG: ITALY ── -->
+  <div class="leg-header"><h3>Leg 4 · Sea day &amp; return to Italy</h3></div>
+
+  <!-- DAY 08 — SEA -->
+  <div class="day-card sea">
+    <div class="day-header">
+      <div class="day-number">08</div>
+      <div class="day-info">
+        <div class="day-date">Friday, October 30, 2026</div>
+        <div class="day-title">At Sea · Crossing the Adriatic</div>
+        <span class="day-location">⚓ Sea Day</span>
+      </div>
+      <div class="day-weather-badge"><span class="icon">🌊</span>At sea</div>
+    </div>
+    <div class="day-body">
+      <div class="day-weather-strip sea-day">
+        <div class="dwx-item"><span class="dwx-icon">🌊</span><div><div class="dwx-label">Sea state</div><div class="dwx-val">Calm-to-moderate</div></div></div>
+        <div class="dwx-item"><span class="dwx-icon">🌡</span><div><div class="dwx-label">Deck temp</div><div class="dwx-val">~68°F / 20°C</div></div></div>
+        <div class="dwx-item"><span class="dwx-icon">🎃</span><div><div class="dwx-label">Halloween</div><div class="dwx-val">Costume night onboard</div></div></div>
+        <div class="dwx-item"><span class="dwx-icon">🌅</span><div><div class="dwx-label">Sunset</div><div class="dwx-val">~5:00 PM (post-DST)</div></div></div>
+        <div class="dwx-tip">Carnival goes hard for Halloween — costume contests, themed dinners. Even a black tee and a paper eye-patch counts.<span class="dwx-source">No port — ship-board</span></div>
+      </div>
+
+      <div class="activities">
+        <h4>Day Plan</h4>
+        <ul class="activity-list">
+          <li><strong>Brunch on Serenity Deck</strong> with the cousins. Photo-pass the best shots from the past four ports.</li>
+          <li>The "thing you said you'd do on a sea day" — spa, casino, cigar bar with a Negroni. Today's the day.</li>
+          <li>Early dinner: Naples is a 9 AM arrival tomorrow.</li>
+          <li><strong>Halloween night onboard</strong>: costumes, themed atrium, parade through the dining room. Coordinate the cousin costume — even one accessory counts.</li>
+          <li>Pack an outfit for tomorrow tonight — in town all day.</li>
+        </ul>
+      </div>
+
+      <div class="local-notes">
+        <h4>Halloween Heads-Up</h4>
+        <div class="ln-grid">
+          <div class="ln-item"><strong>Costume effort</strong><span>Low. Black turtleneck + paper masks works. The point is the cousin photo.</span></div>
+          <div class="ln-item"><strong>Dining room</strong><span>Reserve early — late seating turns into a parade.</span></div>
+          <div class="ln-item"><strong>Trick-or-treating</strong><span>Some cabins decorate doors and hand out candy. Ship-wide tradition, not advertised.</span></div>
+          <div class="ln-item"><strong>Photo op</strong><span>Atrium is always decked out. Get the cousin photo before dinner.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 09 — NAPLES -->
+  <div class="day-card italy">
+    <div class="day-header">
+      <div class="day-number">09</div>
+      <div class="day-info">
+        <div class="day-date">Saturday, October 31, 2026 · Halloween</div>
+        <div class="day-title">Naples · Pizza, Pompeii &amp; Vesuvius</div>
+        <span class="day-location">📍 Italy · 9 AM – 5 PM</span>
+      </div>
+      <div class="day-weather-badge loading" data-badge data-lat="40.8518" data-lon="14.2681" data-date="2026-10-31"><span class="icon">⛅</span>Loading…</div>
+    </div>
+    <div class="day-body">
+
+      <div class="day-weather-strip"
+           data-weather data-lat="40.8518" data-lon="14.2681" data-date="2026-10-31"
+           data-tip="Warmest port of the cruise — Halloween in Naples is festive. Watch your pockets in crowds."
+           data-port="Naples">
+        <div class="dwx-loading">Pulling live forecast for Naples…</div>
+      </div>
+
+      <div class="activities">
+        <h4>Day Plan · Pick One</h4>
+        <ul class="activity-list">
+          <li><strong>Option A · Pompeii (history pick).</strong> Book a <strong>private guide</strong> — half-day tour with hotel-quality transport (Walks of Italy, Take Walks, Tours by Locals). Cruise-bus excursions are too rushed for an easy pace.</li>
+          <li><strong>Option B · Stay in Naples (the food pick).</strong> Cruise terminal opens onto Piazza del Municipio — everything below is walking distance.</li>
+          <li><strong>Castel Nuovo</strong> (5 min walk) — 13th-c. fortress at the harbor with Renaissance arch.</li>
+          <li><strong>Galleria Umberto I</strong> — a glass-roofed 19th-c. shopping arcade, free, gorgeous, flat.</li>
+          <li><strong>Spaccanapoli</strong> — the dead-straight medieval street that splits Naples in half. Walk it slowly; espresso every few blocks.</li>
+          <li><span class="skip">Don't wing Pompeii without a guide</span> — 170 acres, no shade, overwhelming alone.</li>
+        </ul>
+      </div>
+
+      <div class="restaurants">
+        <h4>Where to Eat · Pizza Capital</h4>
+        <div class="rest-row">
+          <div class="rest-tag lunch">Lunch</div>
+          <div>
+            <div class="rest-name">L'Antica Pizzeria da Michele</div>
+            <div class="rest-desc">Open since 1870. Two pizzas on the menu (Margherita, Marinara). Take a number. Wait. Eat. The original.</div>
+          </div>
+        </div>
+        <div class="rest-row">
+          <div class="rest-tag lunch">Alt</div>
+          <div>
+            <div class="rest-name">Pizzeria Sorbillo</div>
+            <div class="rest-desc">Bigger menu, equally great pizza, faster line. Margherita DOP — buffalo mozzarella, San Marzano tomatoes, basil, olive oil. Done.</div>
+          </div>
+        </div>
+        <div class="rest-row">
+          <div class="rest-tag coffee">Sweet</div>
+          <div>
+            <div class="rest-name">Gran Caffè Gambrinus</div>
+            <div class="rest-desc">1860 belle-époque café on Piazza del Plebiscito. Sfogliatella + espresso at the bar — €1.50 standing, €5 sitting.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="local-notes">
+        <h4>Local Notes · Italy 🇮🇹</h4>
+        <div class="ln-grid">
+          <div class="ln-item"><strong>Currency</strong><span>Euro (€). Cash useful at pizzerias and small bars (€20s preferred).</span></div>
+          <div class="ln-item"><strong>Hello / Thank you</strong><em>Buongiorno / Grazie</em></div>
+          <div class="ln-item"><strong>Coffee custom</strong><span>Standing at the bar = €1.50. Sitting = €5+. Italians drink espresso fast, walk on. Cappuccino is a morning-only drink — never after lunch.</span></div>
+          <div class="ln-item"><strong>Pickpockets</strong><span>Naples earns its reputation. Front pockets only. No phone in back pocket. Crossbody bag zipped.</span></div>
+          <div class="ln-item"><strong>Pompeii transport</strong><span>35-min private car. Skip the Circumvesuviana train — notoriously rough.</span></div>
+          <div class="ln-item"><strong>All aboard</strong><span><strong>4:30 PM.</strong> Naples traffic is brutal. Leave town by 3:45.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 10 — DISEMBARK -->
+  <div class="day-card travel">
+    <div class="day-header">
+      <div class="day-number">10</div>
+      <div class="day-info">
+        <div class="day-date">Sunday, November 1, 2026</div>
+        <div class="day-title">Arrivederci · Disembark Rome</div>
+        <span class="day-location">🛳 Civitavecchia · Italy</span>
+      </div>
+      <div class="day-weather-badge loading" data-badge data-lat="42.0942" data-lon="11.7958" data-date="2026-11-01"><span class="icon">⛅</span>Loading…</div>
+    </div>
+    <div class="day-body">
+
+      <div class="day-weather-strip travel-day"
+           data-weather data-lat="42.0942" data-lon="11.7958" data-date="2026-11-01"
+           data-tip="Pack the night before — bags go in the hallway and get delivered to the terminal."
+           data-port="Civitavecchia">
+        <div class="dwx-loading">Pulling live forecast for Rome / Civitavecchia…</div>
+      </div>
+
+      <div class="activities">
+        <h4>Day Plan</h4>
+        <ul class="activity-list">
+          <li><strong>9:00 AM dock</strong>; one last buffet breakfast, then disembark by your assigned color/number.</li>
+          <li><strong>Pre-booked transfer</strong> to Rome / FCO airport (~90 min, €130–180). Don't wing it.</li>
+          <li><strong>Strongly recommended:</strong> two extra nights in Rome on the back end. The cruise drops you nearby — make use of it.</li>
+          <li>If just a half-day: <strong>Pantheon</strong> (free, flat, 5 min inside) → <strong>Piazza Navona</strong> → <strong>Trevi Fountain</strong> (right hand over left shoulder, one coin to come back).</li>
+          <li>Dinner in <strong>Trastevere</strong>: Da Enzo al 29 (book ahead) or Tonnarello (walk-in). One last cousin dinner.</li>
+        </ul>
+      </div>
+
+      <div class="local-notes">
+        <h4>Disembarkation Notes</h4>
+        <div class="ln-grid">
+          <div class="ln-item"><strong>Bags out</strong><span>Outside cabin door before bed. Tagged by the color/number on your delivered tags.</span></div>
+          <div class="ln-item"><strong>Account settle</strong><span>Do it the night before so morning is just walking off.</span></div>
+          <div class="ln-item"><strong>Flight timing</strong><span>Don't fly the same morning unless your flight is late afternoon or later.</span></div>
+          <div class="ln-item"><strong>Rome custom</strong><span>Throwing the coin: <em>right hand over left shoulder.</em> One coin = come back. Three coins = romance, marriage. Pick your dose.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div><!-- /days-section -->
+
+<!-- ════════ TIPS ════════ -->
+<div class="tips-section" id="tips">
+  <h2>Practical Notebook</h2>
+  <p class="sub">A reference page worth saving to the home screen.</p>
+  <div class="tips-grid">
+    <div class="tip-card">
+      <h3>💶 Money</h3>
+      <ul>
+        <li>Every port uses the <strong>Euro (€).</strong></li>
+        <li>Card almost everywhere. Carry <strong>€100–150 cash</strong> for cafés, taxis, pizzerias.</li>
+        <li>No-FX-fee card (Capital One, Chase Sapphire, Amex Platinum).</li>
+        <li>ATMs in port towns work fine — <strong>avoid cruise-terminal ATMs</strong> (worst rates).</li>
+        <li>Tip 5–10% at sit-down meals. Round up at cafés.</li>
+      </ul>
+    </div>
+    <div class="tip-card">
+      <h3>📱 Connectivity</h3>
+      <ul>
+        <li><strong>International plan</strong> (T-Mobile, Verizon day-pass) is simplest.</li>
+        <li>Or <strong>eSIM</strong> via Airalo for Europe — ~$20 for the cruise.</li>
+        <li>Carnival's <strong>Premium WiFi</strong> tier works for messaging + email on board.</li>
+        <li>Download Google Maps <strong>offline maps</strong> for each port before you sail.</li>
+        <li>Carnival Hub app is <strong>free</strong> on board — chat with cousins, see daily program.</li>
+      </ul>
+    </div>
+    <div class="tip-card">
+      <h3>🧳 What to Pack</h3>
+      <ul>
+        <li>Late-Oct Med: <strong>60–72°F days, 50s at night.</strong></li>
+        <li>Layers: tee, sweater, packable rain shell, scarf for breezy decks.</li>
+        <li>One pair of <strong>broken-in walking shoes</strong> — cobblestones everywhere.</li>
+        <li>One <strong>nice outfit</strong> for Cruise Elegant nights.</li>
+        <li>Sunscreen, sunglasses, water bottle, day backpack.</li>
+        <li>Universal adapter (<strong>Type C/F European plug</strong>).</li>
+      </ul>
+    </div>
+    <div class="tip-card">
+      <h3>🕓 Time &amp; DST</h3>
+      <ul>
+        <li>Italy / Croatia / Montenegro: <strong>CET (UTC+1)</strong>.</li>
+        <li>Greece (Corfu): <strong>EET (UTC+2)</strong> — 1 hr ahead.</li>
+        <li><strong>EU DST ends Oct 25, 2026</strong> — clocks fall back overnight (the night you sail from Italy toward Greece). Carnival adjusts ship time and posts in the daily program.</li>
+        <li>Rome to Dallas: <strong>7-hour difference</strong> most of the year.</li>
+      </ul>
+    </div>
+    <div class="tip-card">
+      <h3>🗣 Phrases</h3>
+      <ul>
+        <li><strong>Hello:</strong> Ciao (IT) · Bok (HR) · Zdravo (ME) · Yassas (GR)</li>
+        <li><strong>Thank you:</strong> Grazie · Hvala · Hvala · Efharistó</li>
+        <li><strong>Please:</strong> Per favore · Molim · Molim · Parakaló</li>
+        <li><strong>The check:</strong> Il conto · Račun · Račun · Logariasmós</li>
+        <li><strong>Cheers:</strong> Salute · Živjeli · Živjeli · Yamas</li>
+      </ul>
+    </div>
+    <div class="tip-card">
+      <h3>🚢 Carnival Legend Cheat</h3>
+      <ul>
+        <li><strong>Hub app</strong> for daily program, dinner res, on-board chat.</li>
+        <li>Book the <strong>steakhouse</strong> for sea day #2 (Oct 25).</li>
+        <li><strong>Serenity adults-only deck</strong> — top deck, aft. Quietest spot.</li>
+        <li><strong>Library + chess room</strong> on lower decks — hidden sea-day gem.</li>
+        <li>Crew gratuities auto-charged ~$16/day pp. Don't double-tip in dining unless service was extraordinary.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ COUSIN TRADITIONS ════════ -->
+<div class="cousins-section">
+  <h2>Cousins Crew · Traditions</h2>
+  <p class="sub">Small rituals that turn a 9-night cruise into a story you tell for years.</p>
+  <div class="tradition-grid">
+    <div class="tradition">
+      <h3>One Long Table</h3>
+      <p>Cousin dinner every single night — same table, no peeling off. Photo at dessert.</p>
+    </div>
+    <div class="tradition">
+      <h3>Best-Moment Round</h3>
+      <p>End every dinner with a go-around: best moment of the day. No repeats. Specifics only.</p>
+    </div>
+    <div class="tradition">
+      <h3>The Cabin Door</h3>
+      <p>Decorate one cousin's door each port day — printed photo from that day, taped up by morning.</p>
+    </div>
+    <div class="tradition">
+      <h3>The Group Pose</h3>
+      <p>Same cousin pose at every port, in front of the obvious landmark. Five identical shots = one beautiful printed grid back home.</p>
+    </div>
+    <div class="tradition">
+      <h3>The Halloween Costume</h3>
+      <p>Oct 31 is Naples / Halloween onboard. Coordinate one accessory — black turtlenecks, paper masks, anything. Show up.</p>
+    </div>
+    <div class="tradition">
+      <h3>The Final Toast</h3>
+      <p>Last night, last drink, on deck, just the cousins. <em>"To Rome, the cousins, and the next one."</em> Phones away two minutes.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ════════ FOOTER ════════ -->
+<footer>
+  Cousins Do the Mediterranean &nbsp;·&nbsp; Carnival Legend &nbsp;·&nbsp; Oct 23 – Nov 1, 2026 &nbsp;·&nbsp; Buon viaggio
+</footer>
+
+<!-- ════════ LIVE WEATHER ════════ -->
+<script>
+// ---- Live weather (Open-Meteo, no API key) ----
+// Forecast within 16 days · falls back to last year's same date as "typical" otherwise.
+// As the trip approaches, the API automatically swaps from "typical" to "live forecast" — no code change.
+(function () {
+  const WMO = {
+    0:["Clear","☀"], 1:["Mostly clear","🌤"], 2:["Partly cloudy","⛅"], 3:["Overcast","☁"],
+    45:["Foggy","🌫"], 48:["Foggy","🌫"],
+    51:["Light drizzle","🌦"], 53:["Drizzle","🌦"], 55:["Heavy drizzle","🌧"],
+    56:["Frz drizzle","🌧"], 57:["Frz drizzle","🌧"],
+    61:["Light rain","🌦"], 63:["Rain","🌧"], 65:["Heavy rain","🌧"],
+    66:["Frz rain","🌧"], 67:["Frz rain","🌧"],
+    71:["Light snow","🌨"], 73:["Snow","🌨"], 75:["Heavy snow","❄"], 77:["Snow grains","🌨"],
+    80:["Showers","🌦"], 81:["Heavy showers","🌧"], 82:["Violent showers","⛈"],
+    85:["Snow showers","🌨"], 86:["Heavy snow showers","🌨"],
+    95:["Thunderstorm","⛈"], 96:["T-storm + hail","⛈"], 99:["Severe T-storm","⛈"]
+  };
+
+  const C2F  = c => c * 9 / 5 + 32;
+  const KMH2MPH = k => k / 1.609;
+
+  function daysFromToday(d) {
+    const today = new Date(); today.setHours(0,0,0,0);
+    return Math.round((new Date(d + 'T12:00:00') - today) / 86400000);
+  }
+
+  function fmtTime(iso) {
+    if (!iso) return '—';
+    const d = new Date(iso);
+    let h = d.getHours(), m = d.getMinutes();
+    const ampm = h >= 12 ? 'PM' : 'AM';
+    h = h % 12 || 12;
+    return `${h}:${m.toString().padStart(2,'0')} ${ampm}`;
+  }
+
+  function windDirText(deg) {
+    if (deg == null) return '';
+    const dirs = ['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
+    return dirs[Math.round(((deg % 360) / 22.5)) % 16];
+  }
+
+  async function fetchForecast(lat, lon, date) {
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}` +
+      `&daily=temperature_2m_max,temperature_2m_min,weathercode,precipitation_probability_max,sunrise,sunset,wind_speed_10m_max,wind_direction_10m_dominant` +
+      `&timezone=auto&temperature_unit=fahrenheit&wind_speed_unit=mph&start_date=${date}&end_date=${date}`;
+    const r = await fetch(url);
+    if (!r.ok) throw 0;
+    const j = await r.json();
+    if (!j.daily || !j.daily.time || !j.daily.time.length) throw 0;
+    return {
+      type:'forecast',
+      hi:j.daily.temperature_2m_max[0],
+      lo:j.daily.temperature_2m_min[0],
+      code:j.daily.weathercode[0],
+      precip:j.daily.precipitation_probability_max[0],
+      sunset:j.daily.sunset[0],
+      windMph:j.daily.wind_speed_10m_max[0],
+      windDir:windDirText(j.daily.wind_direction_10m_dominant[0])
+    };
+  }
+
+  async function fetchHistorical(lat, lon, date) {
+    const tripYear = parseInt(date.slice(0,4), 10);
+    const histDate = (tripYear - 1) + date.slice(4);
+    const url = `https://archive-api.open-meteo.com/v1/archive?latitude=${lat}&longitude=${lon}` +
+      `&daily=temperature_2m_max,temperature_2m_min,weathercode,precipitation_sum,sunrise,sunset,wind_speed_10m_max,wind_direction_10m_dominant` +
+      `&timezone=auto&temperature_unit=fahrenheit&wind_speed_unit=mph&start_date=${histDate}&end_date=${histDate}`;
+    const r = await fetch(url);
+    if (!r.ok) throw 0;
+    const j = await r.json();
+    if (!j.daily || !j.daily.time || !j.daily.time.length) throw 0;
+    return {
+      type:'historical',
+      hi:j.daily.temperature_2m_max[0],
+      lo:j.daily.temperature_2m_min[0],
+      code:j.daily.weathercode[0],
+      precip:j.daily.precipitation_sum[0],
+      sunset:j.daily.sunset[0],
+      windMph:j.daily.wind_speed_10m_max[0],
+      windDir:windDirText(j.daily.wind_direction_10m_dominant[0])
+    };
+  }
+
+  function rainColor(p, type) {
+    if (type === 'historical') return (p > 1) ? '#dc2626' : '#16a34a';
+    if (p == null) return '#16a34a';
+    if (p >= 60) return '#dc2626';
+    if (p >= 30) return '#d97706';
+    return '#16a34a';
+  }
+
+  function rainText(p, type) {
+    if (type === 'historical') {
+      return (p > 1) ? `Wet (${p.toFixed(1)} mm last yr)` : 'Dry last year';
+    }
+    return (p == null) ? '—' : `${Math.round(p)}%`;
+  }
+
+  function sourceBadge(daysAway, type) {
+    if (type === 'forecast') {
+      if (daysAway <= 1)  return '<span class="dwx-source live">Live forecast</span>';
+      if (daysAway <= 7)  return `<span class="dwx-source live">Forecast · ${daysAway}d out</span>`;
+      return `<span class="dwx-source">Forecast · ${daysAway}d out</span>`;
+    }
+    return '<span class="dwx-source">Typical · last yr</span>';
+  }
+
+  function renderStrip(el, r, daysAway, port) {
+    if (!r) {
+      el.innerHTML = `<div class="dwx-loading">Weather data unavailable. Try a refresh.</div>`;
+      return;
+    }
+    const [cond, emoji] = WMO[r.code] || ['Mixed conditions','🌥'];
+    const tip = el.dataset.tip || '';
+    const stripClass = el.classList.contains('travel-day') ? '' : '';
+    el.innerHTML = `
+      <div class="dwx-item"><span class="dwx-icon">🌡</span><div><div class="dwx-label">High</div><div class="dwx-val">${Math.round(r.hi)}°F</div></div></div>
+      <div class="dwx-item"><span class="dwx-icon">🌙</span><div><div class="dwx-label">Low</div><div class="dwx-val">${Math.round(r.lo)}°F</div></div></div>
+      <div class="dwx-item"><span class="dwx-icon">${emoji}</span><div><div class="dwx-label">Conditions</div><div class="dwx-val">${cond}</div></div></div>
+      <div class="dwx-item"><span class="dwx-icon">🌧</span><div><div class="dwx-label">Rain</div><div class="dwx-val" style="color:${rainColor(r.precip,r.type)};">${rainText(r.precip,r.type)}</div></div></div>
+      <div class="dwx-item"><span class="dwx-icon">🌅</span><div><div class="dwx-label">Sunset</div><div class="dwx-val">${fmtTime(r.sunset)}</div></div></div>
+      <div class="dwx-item"><span class="dwx-icon">💨</span><div><div class="dwx-label">Wind</div><div class="dwx-val">${Math.round(r.windMph)} mph${r.windDir ? ' ' + r.windDir : ''}</div></div></div>
+      <div class="dwx-tip">${tip}${sourceBadge(daysAway, r.type)}</div>
+    `;
+  }
+
+  function renderBadge(el, r) {
+    if (!r) {
+      el.innerHTML = `<span class="icon">⛅</span>—`;
+      el.classList.remove('loading');
+      return;
+    }
+    const [cond, emoji] = WMO[r.code] || ['Mixed','🌥'];
+    el.innerHTML = `<span class="icon">${emoji}</span>${Math.round(r.hi)}°F · ${cond}`;
+    el.classList.remove('loading');
+  }
+
+  async function fetchFor(lat, lon, date) {
+    const daysAway = daysFromToday(date);
+    let r = null;
+    if (daysAway >= -1 && daysAway <= 15) {
+      try { r = await fetchForecast(lat, lon, date); } catch(_) {}
+    }
+    if (!r) {
+      try { r = await fetchHistorical(lat, lon, date); } catch(_) {}
+    }
+    return { result: r, daysAway };
+  }
+
+  async function init() {
+    // Group strips & badges by lat/lon/date so we make one request per port per visit.
+    const targets = {};
+    document.querySelectorAll('[data-weather], [data-badge]').forEach(el => {
+      const k = `${el.dataset.lat}|${el.dataset.lon}|${el.dataset.date}`;
+      (targets[k] = targets[k] || []).push(el);
+    });
+
+    await Promise.all(Object.entries(targets).map(async ([k, els]) => {
+      const [lat, lon, date] = k.split('|');
+      const { result, daysAway } = await fetchFor(lat, lon, date);
+      els.forEach(el => {
+        if (el.hasAttribute('data-weather')) {
+          renderStrip(el, result, daysAway, el.dataset.port);
+        } else if (el.hasAttribute('data-badge')) {
+          renderBadge(el, result);
+        }
+      });
+    }));
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+})();
+</script>
+
+</body>
+</html>
